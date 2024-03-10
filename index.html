@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+
+        function greet() {
+            let name = document.getElementById('name').value;
+
+            changeGreeting(`Hallo ` , name, 0);
+            changeGreeting(`Ei gude `, name, 2000);
+            changeGreeting(`Hello `, name, 4000);
+            changeGreeting(`Hej `, name, 6000);
+            changeGreeting(`Salut `, name, 8000);
+            changeGreeting(`Ciao `, name, 10000);
+            changeGreeting(`¡Hola `, name, 12000);
+            changeGreeting(`Ave `, name, 14000);
+            changeGreeting(`Grüezi `, name, 16000);
+        }
+
+        function changeGreeting(hi, name, time) {
+
+            setTimeout(function () {
+                document.getElementById('greeting').classList.add('animate');
+                document.getElementById('greeting').innerHTML = hi + name + `!`;
+
+            setTimeout(function(){
+                document.getElementById('greeting').classList.remove('animate');
+            }, 1000);    
+            }, time);
+
+        }
+
+    </script>
+</head>
+
+<body>
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name">
+    <button onclick="greet()">Hi!</button>
+    <h1 id="greeting"></h1>
+</body>
+
+</html>
